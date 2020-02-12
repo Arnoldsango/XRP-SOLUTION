@@ -1,0 +1,70 @@
+﻿@model IEnumerable<XrpSolutions.Models.DebtorsMaster>
+
+@{
+    ViewBag.Title = "LowestDebtor";
+}
+
+<h2>Lowest Debtor</h2>
+
+<p>
+    <div class="btn btn-default"> @Html.ActionLink("Create New", "Create")    </div>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostYearToDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salesYearToDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostYearToDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesYearToDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DebtorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DebtorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DebtorId })
+        </td>
+    </tr>
+}
+
+</table>

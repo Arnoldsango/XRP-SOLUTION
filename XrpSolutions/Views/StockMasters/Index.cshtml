@@ -1,0 +1,109 @@
+﻿@model IEnumerable<XrpSolutions.Models.StockMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Stock Master Table</h2>
+
+
+<div class="row">
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+
+    <!-- ============================================================== -->
+    <!-- basic table  -->
+    <!-- ============================================================== -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <p>
+                <div class="btn btn-default"> @Html.ActionLink("Create New", "Create")</div>
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StockCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StockDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cost)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SellingPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.QtyPurchased)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.QtySold)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StockOnHand)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalPurchasesExclVat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalSalesexclvat)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StockCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StockDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SellingPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.QtyPurchased)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.QtySold)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StockOnHand)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalPurchasesExclVat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalSalesexclvat)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.StockId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.StockId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.StockId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+    @Scripts.Render("~/bundles/dataTables")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+
+    </script>
+}
